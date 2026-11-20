@@ -10,3 +10,24 @@
 @media(max-width:420px){.btn-grid{grid-template-columns:1fr}.hero{padding-top:42px}.pl-btn{padding:16px 12px}}
 
 a{overflow-wrap:anywhere}
+
+/* --- i18n visibility --- */
+/* Hide all language-specific blocks by default; show only the active one via [data-lang] on body */
+[class^="lang-"], [class*=" lang-"] { display: none; }
+.pl-en, .pl-ja { display: none; } /* index menu existing labels map to en/ja */
+
+[data-lang="en"] .lang-en, [data-lang="en"] .pl-en { display: revert; }
+[data-lang="ja"] .lang-ja, [data-lang="ja"] .pl-ja { display: revert; }
+[data-lang="zh"] .lang-zh { display: revert; }
+[data-lang="ko"] .lang-ko { display: revert; }
+[data-lang="fr"] .lang-fr { display: revert; }
+[data-lang="es"] .lang-es { display: revert; }
+
+/* Ensure inline text keeps inline layout when revealed */
+.lang-en,.lang-ja,.lang-zh,.lang-ko,.lang-fr,.lang-es{ display: inline; }
+
+/* --- Language switcher --- */
+.lang-switcher{ position:relative; z-index:6; margin:10px 16px 14px; display:flex; flex-wrap:wrap; gap:6px; }
+.lang-switcher button{ appearance:none; border:1px solid rgba(0,0,0,.12); background:#fff; color:var(--text); padding:6px 9px; border-radius:999px; font-weight:800; font-size:.72rem; letter-spacing:.03em; cursor:pointer; box-shadow:var(--shadow-sm); }
+.lang-switcher button.active{ background:var(--orange); border-color:var(--orange); color:#fff; box-shadow:var(--shadow-md); }
+.lang-switcher button:focus-visible{ outline:2px solid var(--orange); outline-offset:2px; }
